@@ -1,0 +1,13 @@
+# hugo static site artifacts
+.hugo_build.lock
+docs
+public
+
+# Avoid committing potentially bigass files to this repo.
+*.mp4
+*.mov
+*.7z
+*.br
+*.gz
+*.tar
+*.zip

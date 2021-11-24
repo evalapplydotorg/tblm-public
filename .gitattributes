@@ -1,0 +1,19 @@
+###############################
+# Standard gitattribute guarantees
+# - TBLM site source likely to be used across Win, Mac, *nix
+# - ref: https://rehansaeed.com/gitattributes-best-practices/
+###############################
+# Set default behavior to automatically normalize line endings.
+* text=auto
+# Force batch scripts to always use CRLF line endings so that if a repo is
+# accessed in Windows via a file share from Linux, the scripts will work.
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+# Force bash scripts to always use LF line endings so that if a repo is
+# accessed in Unix via a file share from Windows, the scripts will work.
+*.sh text eol=lf
+###############################
+# Git Large File System (LFS) #
+###############################
+# DO NOT USE GIT LFS in the public-facing repo, because github pages does
+# *not* support static site builds from git LFS.
