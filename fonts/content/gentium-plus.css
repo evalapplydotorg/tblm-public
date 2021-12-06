@@ -1,0 +1,27 @@
+/* use Gentium Plus - Regular in .woff2 format */
+@font-face {
+    font-family: 'GentiumPlusW';
+    src: url(gentium-plus-v6-001/GentiumPlus-Regular.woff2) format('woff2');
+}
+
+/* use Gentium Plus - Italic in .woff2 format */
+@font-face {
+    font-family: 'GentiumPlusW';
+    font-style: italic;
+    src: url(gentium-plus-v6-001/GentiumPlus-Italic.woff2) format('woff2');
+}
+
+/* use Gentium Plus - Bold in .woff2 format */
+@font-face {
+    font-family: 'GentiumPlusW';
+    font-weight: bold;
+    src: url(gentium-plus-v6-001/GentiumPlus-Bold.woff2) format('woff2');
+}
+
+/* use Gentium Plus - Bold Italic in .woff2 format */
+@font-face {
+    font-family: 'GentiumPlusW';
+    font-weight: bold;
+    font-style: italic;
+    src: url(gentium-plus-v6-001/GentiumPlus-BoldItalic.woff2) format('woff2');
+}

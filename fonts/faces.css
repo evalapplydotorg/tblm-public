@@ -1,0 +1,18 @@
+/* --------------------------------------------------
+ * SITE TYPOGRAPHY: Ref: project README for guidelines.
+ * -------------------------------------------------- */
+
+/* --------------------------------------------------
+ * MAGAZINE BRAND FACE
+ * -------------------------------------------------- */
+
+/* Oswald, by Google */
+@import url(brand/oswald.css);
+
+
+/* --------------------------------------------------
+ * CONTENT FACE
+ * -------------------------------------------------- */
+
+/* Gentium Plus, by SIL International */
+@import url(content/gentium-plus.css);

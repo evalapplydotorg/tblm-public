@@ -1,0 +1,234 @@
+/* --------------------------------------------------
+ * DESIGN NOTES
+ * --------------------------------------------------
+ * This stylesheet ties together site layout with details of typography,
+ * iconography etc. Some or all of these may be imported from elsewhere.
+ * In other words, here we aim to *compose* the parts together. Each part
+ * should, in turn, cater to a very specific *single* purpose (e.g. specify
+ * all the font-faces we wish to use).
+ */
+
+
+/* --------------------------------------------------
+/* TYPEFACE DECLARATIONS
+* -------------------------------------------------- */
+@import url(../fonts/faces.css);
+
+
+/* --------------------------------------------------
+ * LAYOUTS AND STYLES
+ * -------------------------------------------------- */
+
+:root {
+    /* --------------------------------------------------
+     * MEASURE: Basis for all proportions.
+     * -------------------------------------------------- */
+    --measure: 72ch;            /* Max character width of a line. */
+
+    /* --------------------------------------------------
+     * MODULAR SCALE: Measures for rows and columns.
+     *
+     * - Rows: baseline + 3 larger and 3 smaller heights should suffice.
+     *
+     * - Columns: intended to support 1, 2, and 3 column fluid layouts,
+     *   for small, medium, wide wide screen layouts respectively. E.g.
+     *   prose may occupy 3 narrow columns on a widescreen monitor, but
+     *   on a smartphones, it may get a single full-width column.
+     * -------------------------------------------------- */
+
+    /* Proportion for modular grid. */
+    --ratio: 1.5;
+
+    /* Scale measure map to height and width of square cell */
+    --scale-xxxs: calc(var(--scale-xxs) / var(--ratio));
+    --scale-xxs: calc(var(--scale-xs) / var(--ratio));
+    --scale-xs: calc(var(--scale-s) / var(--ratio));
+    --scale-s: calc(var(--scale-base) / var(--ratio));
+    --scale-base: 1rem;         /* Set baseline grid. */
+    --scale-l: calc(var(--scale-base) * var(--ratio));
+    --scale-xl: calc(var(--scale-l) * var(--ratio));
+    --scale-xxl: calc(var(--scale-xl) * var(--ratio));
+    --scale-xxxl: calc(var(--scale-xxl) * var(--ratio));
+
+    /* Aliases for column widths */
+    --col-w-full-bleed: calc(var(--measure) * var(--ratio));
+    --col-w-full: var(--measure);
+    --col-w-midi: calc(var(--col-w-full) / var(--ratio));
+    --col-w-narrow: calc(var(--col-w-midi) / var(--ratio));
+
+    /* --------------------------------------------------
+     * FONTS: Standard fonts, faces, and sane fallbacks.
+     * -------------------------------------------------- */
+    /* Typesetting defaults. */
+    --body-font-family-default: "GentiumPlusW";
+    --brand-font-family-default: "Oswald";
+    line-height: var(--scale-l);
+    font-size: var(--scale-l);
+    font-weight: normal;
+
+
+    /* --------------------------------------------------
+     * EMBELLISHMENTS: borders, colours etc.
+     * --------------------------------------------------*/
+    --color-light: #fff;
+    --color-dark: #000;
+}
+
+
+
+* {
+    max-width: var(--col-w-full);
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+    font-family: var(--body-font-family-default), sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    max-width: none;
+}
+
+.cover {
+    max-width: var(--col-w-narrow);
+}
+
+h1 {
+    font-style: normal;
+    font-weight: normal;
+}
+
+h2, h3, h4 {
+    font-style: italic;
+}
+
+.masthead,
+.homepage\:section,
+.homepage\:title,
+.homepage\:read-more {
+    font-family: "Oswald";
+    font-style: normal;
+}
+
+.masthead {
+    font-weight: 200;
+    font-size: var(--scale-xxl);
+    line-height: var(--scale-xxxl);
+}
+
+
+.homepage\:section {
+    font-weight: 300;
+    font-size: var(--scale-xl) !important;
+    line-height: var(--scale-xxl) !important;
+}
+
+.homepage\:content h1 {
+    font-family: "Oswald";
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--scale-l) !important;
+    line-height: var(--scale-l) !important;
+}
+
+.homepage\:title {
+    font-weight: 300;
+    font-size: var(--scale-l) !important;
+    line-height: var(--scale-xl) !important;
+}
+
+.homepage\:read-more {
+    font-weight: 400;
+    font-size: var(--scale-base) !important;
+    line-height: var(--scale-base) !important;
+}
+
+.center {
+    box-sizing: content-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--col-w-full);
+}
+
+.box {
+    padding: var(--scale-s);
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+.box * {
+    color: inherit;
+}
+
+.box.invert {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.stack > * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.stack > * + * {
+    margin-top: var(--scale-base);
+}
+
+footer,
+nav {
+    font-family: var(--brand-font-family-default), sans-serif;
+    font-weight: 400;
+    font-size: var(--scale-base);
+    line-height: var(--scale-base);
+}
+
+.cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space, var(--scale-base));
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--scale-base);
+}
+
+.switcher > * {
+    flex-grow: 1;
+    flex-basis: calc(( 30rem - 100%) * 999);
+}
+
+.switcher > :nth-last-child(n+ 5),
+.switcher > :nth-last-child(n+ 5) ~ * {
+    flex-basis: 100%;
+}
+
+.with-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--scale-base);
+}
+
+.with-sidebar > :first-child {
+    flex-grow: 1;
+    max-width: 60%;
+}
+
+.with-sidebar > :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: 20%;
+}
