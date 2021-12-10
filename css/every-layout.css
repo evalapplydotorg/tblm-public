@@ -57,6 +57,8 @@
     --col-w-midi: calc(var(--col-w-full) / var(--ratio));
     --col-w-half: calc(var(--col-w-full) / 2);
     --col-w-narrow: calc(var(--col-w-midi) / var(--ratio));
+    --col-w-quarter: calc(var(--col-w-full) / 4);
+    --col-w-eighth: calc(var(--col-w-full) / 8);
 
     /* --------------------------------------------------
      * FONTS: Standard fonts, faces, and sane fallbacks.
@@ -96,6 +98,8 @@ div,
 header,
 nav,
 main,
+input,
+button,
 footer {
     font-family: var(--body-font-family-default), sans-serif;
     font-weight: normal;
@@ -120,6 +124,28 @@ h2, h3 {
     font-style: italic;
 }
 
+input#searchField,
+button#searchButton {
+    font-family: var(--brand-font-family-default);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--scale-xxxs);
+    padding-right: var(--scale-xxxs);
+    font-weight: 300;
+    font-size: var(--scale-base);
+}
+
+input#searchField {
+    border-radius: var(--scale-xxxxs);
+    color: var(--color-dark);
+}
+
+button#searchButton {
+    border-radius: var(--scale-xxxxs);
+    background-color: var(--color-masthead);
+    color: var(--color-dark);
+}
+
 .masthead,
 .homepage\:section,
 .homepage\:title,
@@ -127,7 +153,7 @@ h2, h3 {
 .homepage\:meta,
 .homepage\:title-icon,
 .homepage\:read-more {
-    font-family: "Oswald";
+    font-family: var(--brand-font-family-default), sans-serif;
     font-style: normal;
 }
 
@@ -146,7 +172,7 @@ h2, h3 {
 }
 
 .homepage\:content h1 {
-    font-family: "Oswald";
+    font-family: var(--brand-font-family-default), sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: var(--scale-l) !important;
@@ -207,6 +233,12 @@ h2, h3 {
 .box.invert {
     color: var(--color-light);
     background-color: var(--color-dark);
+}
+
+.box.invert.thin {
+    padding: none;
+    border: none;
+    max-height: var(--scale-xxxs);
 }
 
 .box.icon {
