@@ -73,18 +73,14 @@
     /* --------------------------------------------------
      * EMBELLISHMENTS: borders, colours etc.
      * --------------------------------------------------*/
-    /* --color-light: #ffffff; */
-    --color-light: /* #f0ece2; */ /* #d9dad7; */ #f0ece2; #dfd3c3;
-    /* --color-dark: #151515; */
-    /* --color-dark: #202020; */
-    /* --color-dark: #1a2639; */
-    --color-dark: #1a2639; /* #1d1716; */
-    /* --color-background: #f5f5f5; */
-    --color-background: /* #d9dad7; */ /* #f0ece2; */  #dfd3c3;
-    --color-links:  /* #c24d2c; */  #1a2639; /*#3e4a61; #8a0f0f; */
-    --color-masthead:/* #ff894c; */  #ef9f2c;
+    --color-light: #f0ece2;
+    --color-mid: #dfd3c3;
+    --color-dark: #1a2639;
+    --color-background: var(--color-light);
+    --color-links: var(--color-dark);
+    --color-masthead:  #ef9f2c;
 
-    color: var(--color-light);
+    color: var(--color-dark);
     background-color: var(--color-background);
 }
 
@@ -96,7 +92,6 @@ html,
 body,
 div,
 header,
-nav,
 main,
 input,
 button,
@@ -111,11 +106,18 @@ body {
     margin: var(--scale-xs);
 }
 
+a {
+    color: var(--color-links);
+    text-underline-offset: var(--scale-xxxs) ;
+}
+
 .prev-next {
     max-width: var(--col-w-narrow);
 }
 
 h1 {
+    font-weight: normal;
+    font-style: normal;
     font-size: var(--scale-l);
     line-height: var(--scale-xl);
 }
@@ -154,33 +156,31 @@ button#searchButton {
 .homepage\:title-icon,
 .homepage\:read-more {
     font-family: var(--brand-font-family-default), sans-serif;
+    font-weight: 200;
     font-style: normal;
 }
 
 .masthead {
-    font-weight: 200;
     font-size: var(--scale-xxl);
     line-height: var(--scale-xxxl);
-    color: var(--color-masthead) !important;
 }
 
 
 .homepage\:section {
-    font-weight: 300;
     font-size: var(--scale-xl) !important;
     line-height: var(--scale-xxl) !important;
 }
 
 .homepage\:content h1 {
+    font-weight: 400;
     font-family: var(--brand-font-family-default), sans-serif;
     font-style: normal;
-    font-weight: 400;
     font-size: var(--scale-l) !important;
     line-height: var(--scale-l) !important;
 }
 
 .homepage\:title {
-    font-weight: 200;
+    font-weight: 400;
     font-size: var(--scale-l) !important;
     line-height: var(--scale-xl) !important;
 }
@@ -188,28 +188,16 @@ button#searchButton {
 .homepage\:author {
     font-weight: 400;
     font-size: var(--scale-base) !important;
-    line-height: var(--scale-l) !important;
 }
 
 .homepage\:meta * {
-    font-weight: 300;
-    /* font-style: reg; */
-    font-size: var(--scale-s) !important;
-    line-height: var(--scale-base) !important;
-    color: var(--color-masthead) !important;
+    font-size: var(--scale-base) !important;
 }
 
-.homepage\:title-icon {
-    font-weight: 300;
+.homepage\:read-more * {
     font-size: var(--scale-base) !important;
     line-height: var(--scale-base) !important;
-}
-
-.homepage\:read-more {
-    font-weight: 400;
-    font-size: var(--scale-base) !important;
-    line-height: var(--scale-base) !important;
-    color: var(--color-links) !important;
+    background-color: var(--color-masthead);
 }
 
 .center {
@@ -221,8 +209,6 @@ button#searchButton {
 
 .box {
     padding: var(--scale-s);
-    color: var(--color-dark);
-    background-color: var(--color-light);
     border-radius: var(--scale-xxxxs);
 }
 
@@ -231,8 +217,7 @@ button#searchButton {
 }
 
 .box.invert {
-    color: var(--color-light);
-    background-color: var(--color-dark);
+    background-color: var(--color-mid);
 }
 
 .box.invert.thin {
@@ -261,17 +246,16 @@ button#searchButton {
     margin-top: var(--scale-base);
 }
 
-footer,
-nav * {
-    font-family: var(--brand-font-family-default), sans-serif;
-    font-weight: 300;
-    font-size: var(--scale-base);
-    line-height: var(--scale-base);
-    text-underline-offset: var(--scale-xxs) ;
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space, var(--scale-base));
+    justify-content: flex-start;
+    align-items: center;
 }
 
-nav > * {
-    color: var(--color-masthead) !important;
+nav a {
+    background-color: var(--color-masthead) !important;
 }
 
 .cluster {

@@ -1,0 +1,91 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+publish_mode: editorial_workflow
+search: false
+media_folder: "static/images/uploads"
+public_folder: "images/uploads"
+
+# Use to preview config changes locally, when local backend is up,
+# using the default proxy server port
+local_backend: true
+
+collections:
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    label_singular: "Post"
+    description: >-
+      These are all the posts in TBLM.
+    folder: "content/posts" # The path to the folder where the documents are stored
+    extension: "md"
+    format: "yaml-frontmatter"
+    create: true # Allow users to create new documents in this collection
+    sortable_fields: ["issue", "date", "category"]
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    summary: "Issue {{issue}} / {{category}} / {{title}}"
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Draft", name: "draft", widget: "boolean"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Category",
+         name: "category",
+         widget: "select",
+         default: "uncategorised",
+         options: ["poetry","fiction","interviews","general"]}
+      - {label: "Issue",
+         name: "issue",
+         widget: "number",
+         min: 1,
+         max: 9999,
+         }
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+    view_filters:
+      - label: Drafts
+        field: draft
+        pattern: true
+    view_groups:
+      - label: Issue
+        field: issue
+      - label: Category
+        field: category
+  - name: "about"
+    label: "About"
+    description: "About TBLM"
+    files:
+      - name: "about"
+        label: "About TBLM"
+        file: "content/about.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Publish Date", name: "date", widget: "datetime"}
+          - {label: "Draft", name: "draft", widget: "boolean"}
+          - {label: "Author", name: "author", widget: "string"}
+          - {label: "Category",
+             name: "category",
+             widget: "select",
+             default: "uncategorised",
+             options: ["poetry","fiction","interviews","general"]}
+          - {label: "Summary", name: "summary", widget: "text"}
+          - {label: "Body", name: "body", widget: "markdown"}
+  - name: "submissions"
+    label: "Submissions"
+    description: "Submit posts to TBLM"
+    files:
+      - name: "submit"
+        label: "Submit posts to TBLM"
+        file: "content/submit.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Publish Date", name: "date", widget: "datetime"}
+          - {label: "Draft", name: "draft", widget: "boolean"}
+          - {label: "Author", name: "author", widget: "string"}
+          - {label: "Category",
+             name: "category",
+             widget: "select",
+             default: "uncategorised",
+             options: ["poetry","fiction","interviews","general"]}
+          - {label: "Summary", name: "summary", widget: "text"}
+          - {label: "Body", name: "body", widget: "markdown"}
