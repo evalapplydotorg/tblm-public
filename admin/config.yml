@@ -46,6 +46,54 @@ collections:
       - label: Drafts
         field: draft
         pattern: true
+      - label: poetry
+        field: category
+        pattern: poetry
+      - label: fiction
+        field: category
+        pattern: fiction
+      - label: interviews
+        field: category
+        pattern: interviews
+      - label: reviews
+        field: category
+        pattern: reviews
+      - label: comics
+        field: category
+        pattern: comics
+      - label: general
+        field: category
+        pattern: general
+      - label: Issue 1-9
+        field: issue
+        pattern: '\b[1-9]\b'
+      - label: Issue 10-19
+        field: issue
+        pattern: '\b[1][1-9]\b'
+      - label: Issue 20-29
+        field: issue
+        pattern: '\b[2][1-9]\b'
+      - label: Issue 30-39
+        field: issue
+        pattern: '\b[3][1-9]\b'
+      - label: Issue 40-49
+        field: issue
+        pattern: '\b[4][1-9]\b'
+      - label: Issue 50-59
+        field: issue
+        pattern: '\b[5][1-9]\b'
+      - label: Issue 60-69
+        field: issue
+        pattern: '\b[6][1-9]\b'
+      - label: Issue 70-79
+        field: issue
+        pattern: '\b[7][1-9]\b'
+      - label: Issue 80-89
+        field: issue
+        pattern: '\b[8][1-9]\b'
+      - label: Issue 90-99
+        field: issue
+        pattern: '\b[9][1-9]\b'
     view_groups:
       - label: Issue
         field: issue
